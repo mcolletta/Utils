@@ -1,5 +1,5 @@
 Compiling
 *********
 
-1) Install gradle 1.2+
+1) Install gradle 7.3
 2) run "gradle" in this folder

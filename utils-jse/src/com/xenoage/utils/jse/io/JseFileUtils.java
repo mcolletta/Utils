@@ -242,7 +242,7 @@ public class JseFileUtils {
 	 * {@link #copyFileToStream(String, OutputStream)} instead and close
 	 * the stream when finished.
 	 */
-	public static void copyFile(String filepath, OutputStream out)
+	@Deprecated public static void copyFile(String filepath, OutputStream out)
 		throws IOException {
 		FileInputStream fis = new FileInputStream(filepath);
 		byte[] buf = new byte[1024];

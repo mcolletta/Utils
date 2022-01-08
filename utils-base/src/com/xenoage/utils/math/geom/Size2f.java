@@ -48,14 +48,14 @@ public final class Size2f {
 	/**
 	 * @deprecated use {@link #withWidth(float)}
 	 */
-	public Size2f changeWidth(float width) {
+	@Deprecated public Size2f changeWidth(float width) {
 		return new Size2f(width, height);
 	}
 
 	/**
 	 * @deprecated use {@link #withHeight(float)}
 	 */
-	public Size2f changeHeight(float height) {
+	@Deprecated public Size2f changeHeight(float height) {
 		return new Size2f(width, height);
 	}
 

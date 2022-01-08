@@ -16,5 +16,6 @@ import java.lang.annotation.RetentionPolicy;
  * @author Andreas Wenger
  */
 @Retention(RetentionPolicy.CLASS)
+@Deprecated
 public @interface NeverNull {
 }

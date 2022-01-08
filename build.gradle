@@ -5,7 +5,19 @@ allprojects {
 
 	repositories {
 		mavenCentral()
+		flatDir { dirs "${System.getenv('JAVAFX_HOME')}/lib" }
 	}
+
+	// compileJava {
+	// 	doFirst {
+	// 		options.compilerArgs = [
+	// 			'--module-path', "${System.getenv('JAVAFX_HOME')}",
+	// 			 "--add-modules=javafx.graphics,javafx.fxml,javafx.swing"
+	// 		]
+	// 		classpath = files()  
+	// 	}
+	// 	options.encoding = 'UTF-8'
+	// }
 
 	//use UTF-8 encoding
 	compileJava.options.encoding = 'UTF-8'

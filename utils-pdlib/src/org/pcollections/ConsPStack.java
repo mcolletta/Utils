@@ -44,7 +44,16 @@ public final class ConsPStack<E> extends AbstractSequentialList<E> implements PS
 	 * @return a stack consisting of the elements of list in the order of list.iterator()
 	 */
 	@SuppressWarnings("unchecked")
-	public static <E> ConsPStack<E> from(final Collection<? extends E> list) {
+	// with Java17
+	// error: incompatible types: inference variable E#1 has incompatible equality constraints E#2,CAP#1
+	// where E#1,E#2 are type-variables:
+    //   E#1 extends Object declared in method <E#1>from(Iterator<E#1>)
+    //   E#2 extends Object declared in method <E#2>from(Collection<? extends E#2>)
+    // where CAP#1 is a fresh type-variable:
+    //   CAP#1 extends E#2 from capture of ? extends E#2
+    //
+	//public static <E> ConsPStack<E> from(final Collection<? extends E> list) {
+	public static <E> ConsPStack<E> from(final Collection<E> list) {
 		if(list instanceof ConsPStack)
 			return (ConsPStack<E>)list; //(actually we only know it's ConsPStack<? extends E>)
 									// but that's good enough for an immutable
@@ -52,11 +61,19 @@ public final class ConsPStack<E> extends AbstractSequentialList<E> implements PS
 		return from(list.iterator());
 	}
 	
-	private static <E> ConsPStack<E> from(final Iterator<? extends E> i) {
+	// with Java 17 
+	// error: incompatible types: E cannot be converted to CAP#1 where E is a type-variable:
+    //   E extends Object declared in method <E>from(Iterator<? extends E>)
+    // where CAP#1 is a fresh type-variable:
+    //   CAP#1 extends E from capture of ? extends E
+	//
+	//private static <E> ConsPStack<E> from(final Iterator<? extends E> i) {
+	private static <E> ConsPStack<E> from(final Iterator<E> i) {
 		if(!i.hasNext()) return empty();
 		E e = i.next();
 		return from(i).plus(e);
 	}
+
 
 	
 //// PRIVATE CONSTRUCTORS ////

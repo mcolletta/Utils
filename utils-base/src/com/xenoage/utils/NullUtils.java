@@ -25,7 +25,7 @@ public class NullUtils {
 	 * Throws an IllegalArgumentException if one of the given arguments is null.
 	 * @deprecated use {@link CheckUtils#checkArgsNotNull(Object...)}
 	 */
-	public static void throwNullArg(Object... o) {
+	@Deprecated public static void throwNullArg(Object... o) {
 		for (int i = 0; i < o.length; i++) {
 			if (o[i] == null) {
 				throw new IllegalArgumentException(
@@ -38,7 +38,7 @@ public class NullUtils {
 	 * Throws an IllegalArgumentException if the given argument is null.
 	 * @deprecated use {@link CheckUtils#checkNotNull(Object)}
 	 */
-	public static <T> T assertNotNull(T o) {
+	@Deprecated public static <T> T assertNotNull(T o) {
 		if (o == null)
 			throw new IllegalArgumentException("May not be null");
 		return o;
